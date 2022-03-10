@@ -1,0 +1,644 @@
+\documentclass[11pt]{article}
+\usepackage{graphicx}
+\usepackage{pgf}
+\usepackage{pgfpages}
+\usepackage{Times}
+\usepackage{tikz}
+\usetikzlibrary{matrix}
+\usepackage{wrapfig}
+\usepackage[utf8]{inputenc}
+\usepackage{multirow}
+\usepackage{subcaption}
+\usepackage{printlen}
+\usepackage[flushleft]{threeparttable}
+\usepackage{lipsum}
+\usepackage[a4paper, total={6in, 8in}, margin=1in ]{geometry}
+\usepackage[english]{babel}
+\setlength{\parindent}{4em}
+\setlength{\parskip}{1em}
+\newcommand\tab[1][1cm]{\hspace*{#1}}
+
+
+\renewcommand{\baselinestretch}{1.5}
+\begin{document}
+\begin{titlepage}
+\renewcommand{\baselinestretch}{1}
+	\begin{center}
+	
+	\includegraphics[width=4.5cm, scale=3]{ccsit.jpg}
+
+	\vfill
+	
+	{\bfseries\small Kingdom of Saudi Arabia \\
+Ministry of Education \\
+King Faisal University \\
+College of Computer Sciences \& Information \\  Technology
+\\}
+	\vskip1cm
+	\Huge Muoenni: B2B e-Commerce System
+ \\
+	\vskip1cm
+	\large
+	\emph{A project submitted \\
+in partial fulfillment of the requirements for the degree of \\
+Bachelor of Science in Computer Information System 
+}
+	
+	\vskip1cm 
+	\normalsize \textbf{by} \\
+	Ali Waleed Alhumaid  (218016145) 	
+\\
+	Mahdi Saleh Almahdi (218009724)\\
+	Ziyad Tareq Alhedhod (217031478)\\
+	Saad Saud Almoghirh (217017738)
+	\vfill
+	\vskip.5cm
+	\textbf{Supervised by}\\
+	Dr. Mohammed Alojail
+	\vskip1cm
+	\textbf{Committee Members}\\
+	Michael Jovellanos Pinero\\
+	\vskip.5cm
+	January, 2022
+	\vfill
+	\vfill	
+	\end{center}
+	
+\end{titlepage}
+
+
+\newpage
+\pagenumbering{roman}
+\begin{center}
+\section*{ACKNOWLEDGEMENT}
+\end{center}
+
+\newpage
+\begin{center}
+\large\textbf{UNDERTAKING} \vskip1cm
+\end{center}
+
+
+
+
+This is to declare that the project entitled “Muoenni” is an original work done by the undersigned, in partial fulfillment of the requirements for the degree “Bachelor of Science in the Computer Information System” at Information System department, College of Computer Sciences and Information Technology, King Faisal University. \\
+
+\vskip1cm
+
+All the analysis, design, and system development have been accomplished by the undersigned. Moreover, this project has not been submitted to any other college or university.
+
+
+
+\vskip4cm 
+\begin{flushleft}
+Ali Waleed \tab \includegraphics[width=2cm, scale=3]{aliwaleed.png} \vskip0.4cm
+Ziyad Alhadoud \tab \includegraphics[width=2cm, scale=3]{ziyad.png} \vskip0.4cm
+Mahdi Almahdi \tab \includegraphics[width=1cm, scale=2]{mahdi.png} \vskip0.4cm
+Saad Almogirh \tab \includegraphics[width=2cm, scale=3]{saad.png}
+\end{flushleft}
+
+
+\newpage
+
+
+
+\begin{abstract}
+
+\normalsize\emph{These days there are a lot of family businesses who try to earn money by making food in their house. However, when family businesses want to sell their own food products they sell it to people and other businesses like cafes or other stores that consider food and drinks. The procedure that the family businesses do is complex. They offer their products by using Instagram and any other social media applications to communicate with other businesses. However, they face difficulties in marketing their own products, and they cannot be found easily in these applications. However, this project aims to help family businesses market their products in mobile applications to reach store owners faster and communicate with them within the mobile application. So, when family businesses market their food products in a good way and sell or deal with other businesses their small business will become bigger.In addition, these days family businesses use Instagram to deal with other businesses to sell their food. Instagram was not created or developed for these kinds of functions but small businesses like family businesses use it because of the simple way to represent the food photos and easy use of chat to communicate with each other. So, Muoenni will be developed to control and help both family businesses and store owners to interact with each other. }
+\end{abstract}
+
+
+\newpage
+
+\tableofcontents
+
+\newpage
+
+\listoftables
+
+\newpage
+
+\listoffigures
+
+
+\newpage
+
+\setcounter{page}{8}
+\pagenumbering{arabic}
+\begin{center}
+\section{introduction}
+\end{center}
+
+\subsection{Background of the project}
+
+
+
+\tab Since the COVID-19 pandemic began, e-commerce has grown at an unprecedented rate, a trend that is likely to continue once the pandemic is over. KSA is well-positioned to capitalize on this trend by building a strong domestic e-commerce market and, with the right policies, becoming a GCC e-commerce powerhouse \cite{50bEcommerce}. Muoenni project is a supply management categorized as business to business model, in consideration of small to medium business. Business to business model is when one business sells any type of service or goods to the other business which means one business is a buyer and the other business is a supplier \cite{B2BModel}. In this business to business relationship both of the parties will have three methods: formal documents system, personal judgment and meetings \cite{ManagingB2B}. Supply management means connecting every element form the manufacturer starting from the raw material passing through every process till it reaches to the end user \cite{FRMsupplychain}. Muoenni project Targeting family business to serve cafes and restaurants for expanding their food products. As of writing this report there is no existing system similar to Muoenni project which attempts to computerize the communication between the family business and food business through mobile application. Currently, when businesses want to cooperate with family businesses a business will use social media in matter of trying to find a family businesses. As a result of that will take a lot of time to find one and to communicate with a family business. Therefore, this project aims to automate the process for finding a family business from a food business point of view as well as make communication better between the two parties. Furthermore, mobile application and web-based system will be built to enhance communication and  the process of finding family business. Noting the mobile application will digitize the process from the operation of finding the family business to communication till the food product is delivered to the end party. Each one the buyer and the seller will have personalized user interfaces to strengthen their usage of the mobile application.
+      
+\subsection{Motivation}
+
+
+\tab The motivation for this project is the lack of contact with a family business is hard to find them on social media and to know who is selling the best product Muoenni project is about helping companies who want to cooperate with the family business to automate the process and see the analytical data for both of parties and the app will take care of the process from ordering from the family business to delivering the product to the client which is a cafe, restaurant or the food truck.
+
+
+\subsection{Problem Statement}
+
+\tab The main reason for the project is to ensure the businesses are not running out of supplies by reducing the waste of food through making system to identify the items that need to be ordered, placing orders to suppliers. The main problem for family businesses is that they use Instagram to deal with other businesses and represent their food photos and chat with other businesses to deal with them.In addition, there are many problems like there are no contracts to save their rights on both sides. Also, they did it manually and the agreement it's by chat so if there’s any delay or other problem the business will lose because of this problem.However, Muoenni will create to manage these problems and manipulate it in a good way.
+
+\subsection{Innovation and utility of the project}
+\tab The main focus of this project is to provide the family business with a system that will enable them to market their products by developing a system that will allow businesses to search for nearby family businesses. The business can now cooperate with the family business by using the mobile application, a software that can capture images or videos of foods and products, detailing descriptions of each product. The family business can make use of this application to gather data about their products that will allow them to identify on-demand products. Specifically, the following can benefit from the completion of the project:
+
+
+	The application saves the time of both businesses (business and supplier). The application provides an efficient way to find suppliers easily. The application is recognized by its ease of use on the part of the supplier or product business user. The application provides the surfaces for ordering different types of food and products. The application provides competitive prices for many suppliers. The application provides a competitive market. The application provides the functionality of bidding between suppliers. The application assists the company in choosing the best supplier based on the supplier's rating. The application helps the supplier in showing the best company based on the company’s rating and offers. The application will help the suppliers to truck their products to make sure that products are delivered to the company that requested them. The application will provide notifications to suppliers to notify them that their products are low or near to finish in a specific company. The application will provide the company with three ways to order products i.e order-to-prepare, order-to-get, and subscription plans.
+
+
+   The main utility of this project is to develop an online food supply management, mobile application, web-based application, and supplier mapping which is easily accessible to businesses to find nearby suppliers. 
+
+\subsection{Scope and degree of challenge}
+
+\tab The scope of this project is to develop a system that will help family businesses in reaching their target clients and to market their goods to other food businesses. The system will include process like: \\
+
+For supplier 
+
+\begin{itemize}
+
+
+\item Registration of the supplier’s accounts (family business) and client’s accounts (SME e.g cafe,  restaurants, food trucks, etc).
+\item Maintenance of information and details of the products, like product name, prices, available quantity descriptions and images. 
+\item Posting products in store page specified for the family business 
+\item The family business will received orders from the food businesses
+\item Family business will have the ability to communicate with food business for better service 
+\item Customized Dashboard.
+\end{itemize}
+
+For buyer 
+
+\begin{itemize}
+\item Client Will have the ability to view available suppliers
+\item Clients can search and filter categories of products and suppliers within the vicinity.
+\item Client can request orders.
+\item Client can cancel orders.
+\item Client can request for reversed auction.
+\item Client can give feedback or review to the products.
+\item Payment will use a third party app.
+\item Delivery will use a third party app.
+\item Customized Dashboard.
+
+\end{itemize}
+
+Some of the process that will not be included in the project are:
+
+\begin{itemize}
+\item Tracking the delivery status of products. 
+\item  The project will not include the monitoring of refund and exchange.
+\end{itemize}
+
+\begin{center}
+\section{Comprehensive analysis of related work}
+\end{center}
+
+\tab This section includes mentions of papers related to the development life cycle of an announcement notification systems, as well as some compare and contrast with Muoenni Project. Articles in this section may or may not inspire Muoenni developers to adopt some of the core design ideas and design choices used by the authors of mentioned articles.
+
+\subsection{Sanah}
+\tab  Sanah is mobile application that allows family business to sell to customers in one platform and allows delivery guys to register so the can take care of the delivery. Sannah is paid platform they have different packages.
+
+Features: 
+\begin{itemize}
+\item Packages for family business accounts.
+\item Managing orders for family business .
+\item Managing delivery requests for delivery guys.
+\item Chats.
+\item Shopping cart.
+\end{itemize}
+
+\begin{figure}
+  \begin{subfigure}{\linewidth}
+  \includegraphics[width=.3\linewidth]{sa34.jpg}\hfill
+  \includegraphics[width=.3\linewidth]{sa35.jpg}\hfill
+  \includegraphics[width=.3\linewidth]{sa36.jpg}
+  \caption{Set A}
+  \label{fig:seta-sn3}
+  \end{subfigure}
+\end{figure}
+
+\clearpage 
+\newpage 
+
+\subsection{Menafena}
+\tab The Manafina application provides customers with a great variety and multiple options of delicious and healthy home meals, customers can search for their favorite dish and then pay and the delivery will be via the delivery captain. They also provide productive families with a unique and distinctive experience to manage their activity at no cost. 
+
+Features: 
+\begin{itemize}
+\item Customers can book meals for their special occasions, and the delivery captain will take care of delivering them on time.
+.
+\item Dashboard feature allows you to view order list, update reservation status, cancel reservations, manage promo code, etc.
+\item Managing delivery requests for delivery guys.
+\item The tracking service allows customers to view the live status of their orders through a map, from receiving the order until it reaches their doorstep.
+\item Customers can view the list of productive families that are near their location.
+\end{itemize}
+
+\begin{figure} [h]
+\begin{center}
+\includegraphics[width=5cm, scale=7]{menafena.png}
+\end{center}
+\caption{Home Page Menafena app}
+  \label{fig:menafena}
+\end{figure}
+\clearpage 
+\newpage 
+
+\subsection{Mathaqi}
+\tab Mathaqi is an application that specializes in ordering domestic food through the Internet, and its goal is to support and promote the products of productive Saudi families and to create additional channels that contribute to income enhancement, where the application employs modern technologies to facilitate the community’s access to the category of families Produced by creating an environment.
+
+Features:
+
+\begin{itemize}
+\item Easy and intuitive ordering with a visual and curated menu that changes each day.
+\item All dishes are listed with suitable combinations.
+\item Choose from delivery slots
+\item Order on the go or in advance
+\item Mix and match from a variety of cuisines and dishes.
+\end{itemize}
+
+
+\begin{figure}
+  \begin{subfigure}{\linewidth}
+  \includegraphics[width=.3\linewidth]{mathqi1.png}\hfill
+    \includegraphics[width=.3\linewidth]{mathqi3.png}\hfill
+  \includegraphics[width=.3\linewidth]{mathqi4.png}
+  \caption{Screen-shots Mathaqi mobile app}
+  \label{fig:mathaqi}
+  \end{subfigure}
+\end{figure}
+
+\clearpage 
+\newpage 
+
+\subsection{Mtgr Alasr Almontigah}
+
+\tab Mtgr Alasr Almontigah is an application for Android and iPhone that displays each productive family by creating its own store through the application and displaying its products for sale.
+
+Features:
+
+
+\begin{itemize}
+\item Allows any user to purchase any of the products offered for sale in the quantities and specifications
+\item An easy way to communicate between the buyer and productive families.
+\item Easy and effective way to market supplier household products and connect them with customers
+\item Manage  orders in a simple way.
+\item Informed of all the updates that customers make on orders in real time through the notifications in the application.
+\end{itemize}
+
+
+\begin{figure} [h]
+\begin{center}
+\includegraphics[width=5cm, scale=7]{msm.png}
+\end{center}
+\caption{Home Page Mtgr Alasr Almontigah app}
+  \label{fig:mtgr-alasr-almontigah}
+\end{figure}
+\clearpage 
+\newpage 
+
+\subsection{Art food}
+\tab Art food is a mobile application that is taking process from preparing food for family business to the process of delivering the food from family business to client. 
+
+Features:
+
+\begin{itemize}
+\item Ability to search for any food products.
+\item Managing orders for family business
+\item E-invoice for printing details.
+\end{itemize}
+
+
+\begin{figure} [h]
+\begin{center}
+\includegraphics[width=5cm, scale=7]{artfood.png}
+\end{center}
+\caption{Home Page Art Food app}
+  \label{fig:artfood}
+\end{figure}
+\clearpage 
+\newpage 
+
+\subsection{Home Cooking}
+\tab 
+Home cooking is a mobile application for Family business producing food. The app includes many categories and the ability to search for family business that are producing food.
+
+Features: 
+\begin{itemize}
+
+\item Ability to search for the products.
+\item Shopping cart for adding the products and to edit orders.
+
+
+
+\end{itemize}
+
+
+\begin{figure} [h]
+\begin{center}
+\includegraphics[width=5cm, scale=7]{homecooking.png}
+\end{center}
+\caption{Home Page Home cooking app}
+  \label{fig:homecooking}
+\end{figure}
+\clearpage 
+\newpage 
+
+\subsection{Chai}
+
+\tab Chai is the Arabic name of Tea, Chai is a mobile application that offers family business nearby which allows the customer to find family business and buy from them.
+
+
+Features: 
+\begin{itemize}
+\item Packages for family business accounts.
+\item Managing orders for family business.
+\item Managing delivery requests for delivery guys.
+\item Chats.
+\item Shopping cart for adding products and edit details.
+\end{itemize}
+
+\begin{figure} [h]
+\begin{center}
+\includegraphics[width=5cm, scale=7]{chai.png}
+\end{center}
+\caption{Home Page Chai app}
+  \label{fig:homecooking}
+\end{figure}
+\clearpage 
+\newpage 
+
+\subsection{Sanah}
+\tab Sanah is mobile application that allows family business to sell to customers in one platform and allows delivery guys to register so the can take care of the delivery. Sannah is paid platform they have different packages.
+
+ Features: 
+ \begin{itemize}
+\item Packages for family business accounts.
+\item Managing orders for family business.
+\item Managing delivery requests for delivery guys.
+\item Chats.
+\item Shopping cart for adding products and edit details.
+\end{itemize}
+
+ \begin{figure} [h]
+\begin{center}
+\includegraphics[width=5cm, scale=7]{chai.png}
+\end{center}
+\caption{Home Page Sanah app}
+  \label{fig:sanah}
+\end{figure}
+\clearpage 
+\newpage 
+
+\begin{center}
+\section{Objectives}
+\end{center}
+
+\subsection{Objective statement}
+\tab The objective of this study is to develop a system that provides a channel to the family businesses and food businesses to communicate and assist in the transactions of acquiring supplies. 
+
+\begin{itemize}
+\item To create a web-based application that allows family businesses and food businesses to create accounts.
+
+\item To develop a mobile application that allows family businesses to post their products in the store page format.
+
+\item To develop a mobile application that enables family businesses to maintain the information and details of the products.
+
+\item To develop chat feature in mobile application that allows food businesses to communicate with family businesses.
+
+\item To develop two mobile applications; one for public to use and one for Admins to control the app. 
+
+\item To develop web-based system to control the app and database.
+
+\item To develop reverse auctions and real-time prices. 
+
+\item To develop mobile application that allows food businesses to filter and search for nearby family businesses.
+
+\item To develop personalized user interfaces for family business and food businesses.
+
+
+
+\end{itemize}
+
+\newpage 
+\begin{center}
+\section{Expected outcomes}
+
+\end{center}
+
+
+\begin{itemize}
+
+\item Convenient way of finding a suitable supplier.
+
+\item The application will have a friendly interface design. For instance, the application will contain familiar icons that are recognizable for users. 
+
+
+\item Simple and easy to use. The application interface is not overly complex, but instead it will be straightforward, providing quick access to common features.
+
+
+\item Users can create a profile where they can register as suppliers or buyers. The application will enable users to create their own profile and personalize it.
+ 
+\item Suppliers can manage their products. The application will provide suppliers the ability to manage their food products by enabling them to create different categories for each product.
+
+\item Businesses can create a list of favorite suppliers and products. The application will provide a feature that enables businesses to create their own list to save their favorite suppliers and products.
+\item Search and filter products. The application will provide a filter feature which will enable businesses to search for specific suppliers or products making it easier for them to find. 
+
+\item Businesses will find out about the latest products for sale. The application will enable suppliers to notify businesses about their latest sales by sending them messages via chat in the application. 
+
+\end{itemize}
+\newpage
+\begin{center}
+\section{Methodology}
+\end{center}
+\tab In this project, the developers will use an agile methodology. However, In software development, agile practices include requirements discovery and solutions improvement through the collaborative effort of self-organizing and cross-functional teams with their customers/end users, adaptive planning, evolutionary development, early delivery, continual improvement, and flexible responses to changes in requirements, capacity, and understanding of the problems to be solved. agile methodology helps to satisfy customers, by involving customers in the development process, Agile teams keep them in the loop and show that they value their opinion, Adaptability, Reduced risk, Better communication, Improved quality, and let the user Adaptability with a system. in Agile software development principles, Customer satisfaction by early and continuous delivery of valuable software. Welcome changing requirements, even in late development. Deliver working software frequently (weeks rather than months) Close, daily cooperation between business people and developers. There are six steps in agile methodology as shown in Figure \ref{fig:Agile}.
+\begin{figure} [h]
+\begin{center}
+\includegraphics[width=8cm, scale=7]{file.png}
+\end{center}
+\caption{Agile Methodology}
+  \label{fig:Agile}
+\end{figure}
+
+\begin{itemize}
+\item \textbf{Plan:} Determine what will be accomplished in the current iteration.
+\item \textbf{Design:} Plan how to incorporate the requirements into a product.
+\item \textbf{Develop:}Iterative software development process used by project teams. To adjust projects, self-organized, cross-functional teams continually examine conditions and user demands. Scrum teams are continually working to enhance the quality of sprints with short-term deliverables. They demonstrate Agile.
+\item \textbf{Test: }
+A software development strategy that encourages regular, automated testing of new code as it is written and requires problems to be addressed as soon as they are discovered.
+\item \textbf{Release:}
+Deployable software package that is the result of multiple iterations.
+\item \textbf{Feedback: }
+Keep in touch during the development process. collect feedback (both positive and negative) about the app from several teams.
+\end{itemize}
+
+
+\newpage
+\begin{center}
+\section{ Identification of alternative solutions/approaches and justification of selecting a solution/approach}
+\end{center}
+
+
+
+\tab This section will explain and analyze possible alternative solutions and technologies that will be assigned in the project's implementation and development. Database, Web-programming Language, and mobile application analysis.
+
+\subsection{Alternative solutions for Platforms}
+
+\subsubsection{Flutter}
+
+\tab In this project the developers will use Flutter. Flutter is an open-source framework by Google for building beautiful, natively compiled, multi-platform applications from a single codebase. However, Flutter is good because it's an open-source framework and has a lot of advantages. One of the advantages it’s fast, flutter code compiles as well as JavaScript, for fast performance on any device. In addition, it’s multi-platform and it can reach users on every screen like mobile, web, desktop, and embedded device. Also, flutter it’s trusted by many people because it’s used by google. 
+\subsubsection{Android studio}
+\tab Android Studio is the official Integrated Development Environment (IDE) for Android app development, On top of IntelliJ's  powerful code editor and developer tools, Android Studio offers even more features that enhance your productivity when building Android apps, such as:
+
+\begin{itemize}
+\item A flexible Gradle-based build system
+\item A fast and feature-rich emulator
+\item A unified environment where you can develop for all Android devices
+\item Extensive testing tools and frameworks
+\item C++ and NDK support
+\item Built-in support for Google Cloud Platform, making it easy to integrate Google Cloud Messaging and App Engine
+\end{itemize}
+
+\subsection{Alternative Solutions for Web-Programming Language}
+
+\subsubsection{PHP}
+\tab Back-end programming languages that are commonly used. It was created with the goal of assisting web development. Because of the popularity of systems such as WordPress, PHP frameworks are utilized to develop the vast majority of websites[7].
+
+\subsubsection{Node.js}
+
+\tab Open-source and cross-platform, Node.js is a JavaScript runtime environment. The application functions in a single process instead of opening a new thread for each request. Blocking behavior is the exception rather than the rule in Node.js, because the standard library includes a set of asynchronous I/O primitives that prevent JavaScript code from blocking, and libraries in Node.js are frequently created using non-blocking paradigms, so blocking behavior is the exception rather than the rule[8].
+
+\subsection{Alternative solutions for Databases}
+
+\subsubsection{PHPMyAdmin}
+\tab phpMyAdmin is an open-source software application for managing database tables and data. The primary goal of phpMyAdmin is to administer MySQL administration via the web. This tool can be used to create, update, delete, edit, remove, import, and export MySQL database tables \cite{phpAdminIntro}.
+\subsubsection{PGADMIN}
+
+\tab The IBM Db2 series of data management technologies includes the Db2 relational database. AI-powered capabilities to modernize structured and unstructured data management across on-premises and multi cloud systems are included in the offerings. By aiding with the structure and accessibility of your data, it helps to save time and money.
+[10]
+
+\subsection{Alternative solutions for platform to be use}
+\tab Design System is the single source of truth which groups all the elements that will allow the teams to design, realize and develop a product
+
+\subsubsection{Web Based System}
+\tab      A web-based system is a program that can be accessed via HTTP. The phrase web-based is commonly used to describe apps that operate on a web browser
+
+\subsubsection{Mobile Application}
+ \tab      A program or software application that runs on a mobile device such as a phone, tablet.
+
+\newpage
+
+\begin{center}
+\section{Justification of selecting a solution/approach}
+\end{center}
+
+
+ \tab This section will explain and justify the selected  solutions/approaches in the project's implementation and development. Web-based application, and mobile application.
+
+
+\subsection{Web-base application}
+
+\tab Web-based applications come with a variety of business benefits. Instead of having to be installed on each computer that you want to access it from, these applications can be accessible via the internet from any computer. Most browsers can be used with a web-based application, and it will run consistently on any operating system, independent of the update or version. Because of the consistency for each user, this also helps in problem solving. Web-based apps content can be easily adapted for use on a variety of platforms, including mobile. Because the presentation of information may be changed as needed, this makes the application user-friendly and exciting to use.
+
+
+\subsubsection{Advantages:}
+
+\begin{itemize}
+\item The ability to connect directly with the service provider and the user
+\item The web application allows you to order almost any service or product at any time of day. So it's constantly online
+\item Clients can find a new catalog that they'll like, and it'll be simple and quick to update.
+\item Constant access to product details without the need to search farther.
+\item Estimated delivery time or date for a product. You can acquire what you need quickly, whether it's a service or a product, and it will arrive on time.
+\item When compared to other types of app development, it has a cheaper development cost.
+\item The ability to integrate to other systems easily.
+\end{itemize}
+
+\subsubsection{Disadvantages:}
+
+\begin{itemize}
+\item Lack of performance due to the app's size tends to grow on different devices.
+\item The feature of a quality control system is lacking from web applications. As result, both safety and security can be compromised.
+\item The website is completely reliant on the web application. If the website fails, the application most certainly fails as well.
+\end{itemize}
+
+
+\subsection{Mobile application}
+\tab For an internet business, mobile app development is critical. The way companies do business has been changed by mobile apps. Customers may now acquire business information faster while staying connected and informed about their favorite brands and offers thanks to applications like these. Apps are critical for broadening a company's reach while also providing relevant and wide brand exposure.
+
+\subsubsection{Advantages:}
+\begin{itemize}
+\item Mobile app development helps to access almost every type of online platform.
+\item Businesses can reach a large audience by using mobile apps.
+\item Mobile apps help in improving businesses accessibility.
+\item Mobile apps assist companies by providing high-quality services to their clients.
+\item Mobile apps allow admin to inform clients of their interest in specific offers and products. 
+\item Mobile apps can help brands in attracting new clients.
+
+\end{itemize}
+
+\subsubsection{Disadvantages:}
+\begin{itemize}
+\item Mobile apps must be developed for each platform, which can be costly and time consuming.
+\item Mobile apps require ongoing maintenance, both in terms of new content and technology.
+\item Mobile apps can be expensive depending on the functionality they have.
+\end{itemize}
+
+\begin{center}
+\section{Identified tasks and realistic work plan}
+
+\end{center}
+
+
+\begin{figure} [h]
+\begin{center}
+\includegraphics[width=10cm, scale=7]{workplan.png}
+\end{center}
+\caption{Realistic work plan}
+  \label{fig:workplan}
+\end{figure}
+\newpage 
+
+\begin{thebibliography}{9}
+\bibitem{B2BModel}
+Cullen, A. J., \& Webster, M. (2007, February 6). \emph{A model of B2B e‐commerce, based on connectivity and purpose.} International Journal of Operations \& Production Management. Retrieved February 7, 2022, from https://www.emerald.com/insight/content/doi/10.1108/01443570710720621/full/html 
+
+\bibitem{ManagingB2B}
+Leek, S., Turnbull, P. W., \& Naudé, P. (2002). Managing business-to-business relationships: An emerging model. \emph{Journal of Customer Behaviour}, 1(3), 357–375. https://doi.org/10.1362/147539202764441092 
+
+\bibitem{FRMsupplychain}
+Tan, K. C. (2001). A framework of Supply Chain Management Literature. \emph{European Journal of Purchasing \& Supply Management}, 7(1), 39–48. https://doi.org/10.1016/s0969-7012(00)00020-4
+
+\bibitem{Agilesw}
+Abrahamsson, P., Oza, N., \&amp; Siponen, M. T. (2010). Agile Software Development Methods: A comparative Review1. Agile Software Development, 31–59. https://doi.org/10.1007/978-3-642-12575-1\_3
+
+
+\bibitem{AnalysisOfAgile}
+Ilieva, S., Ivanov, P., \& Stefanova, E. (2004). Analysis of an agile methodology implementation. \emph{Proceedings. 30th Euromicro Conference, 2004}. https://doi.org/10.1109/eurmic.2004.1333387 
+ 
+ 
+\bibitem{50bEcommerce}
+Martínez, P., Biggs, C., Brindley, J., \& Cernikova, M. (2021, December 14). \emph{The SAR 50 billion e-commerce opportunity in Saudi Arabia}. Middle East - EN. Retrieved February 24, 2022, from https://www.bcg.com/en-mideast/publications/2021/e-commerce-market-50-billion-sar-opportunity-in-saudi-arabia 
+
+\bibitem{8Rphp}
+Mino, S. (2021, April 15). \emph{8 reasons why PHP is still so important for web development.} Jobsity. Retrieved February 25, 2022, from https://www.jobsity.com/blog/8-reasons-why-php-is-still-so-important-for-web-development 
+
+\bibitem{Nodejs}
+bad cite will be corrected
+\bibitem{phpAdminIntro}
+\emph{Introduction phpMyAdmin}. Introduction - phpMyAdmin 5.1.4-dev documentation. (n.d.). Retrieved February 25, 2022, from    https://docs.phpmyadmin.net/en/latest/intro.html  
+
+\bibitem{IBMDB2}
+\emph{IBM DB2 – data management software}. IBM. (n.d.). Retrieved February 25, 2022, from https://www.ibm.com/in-en/analytics/db2 
+
+\bibitem{webappDev}
+\emph{Leff, A., \& Rayfield, J. T. (2001, September). Web-application development using the model/view/controller design pattern. In Proceedings fifth ieee international enterprise distributed object computing conference (pp. 118-127). IEEE.
+}
+
+\bibitem{adv-dis-multi-platform}
+\emph{Corral, L., Janes, A., \& Remencius, T. (2012). Potential advantages and disadvantages of multiplatform development frameworks–A vision on mobile environments. Procedia Computer Science, 10, 1202-1207.}
+\end{thebibliography}
+
+\end{document}
